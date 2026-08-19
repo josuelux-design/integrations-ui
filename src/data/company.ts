@@ -15,6 +15,7 @@ export const tysonFoods: Company = {
   description:
     "We are a company of people engaged in the production of food, seeking to pursue truth and integrity, and committed to creating value for our shareholders, our customers, our team members, and our communities. Tyson Foods is one of the world's largest food companies and a recognized leader in protein, bringing products to market under brands such as Tyson, Jimmy Dean, Hillshire Farm, and Ball Park.",
   founded: "Jan 1935",
+  tags: ["Client", "Priority account", "Protein sector"],
   revenueNative: { value: "$52.88B", year: "2024" },
   headcountNative: { value: "10001+", year: "2024" },
   projects: { total: 3, open: 0, closed: 0 },
@@ -68,6 +69,12 @@ export const tysonFoods: Company = {
         "Poultry",
         "Supply chain",
       ],
+    },
+    ownership: {
+      status: "public",
+      ticker: "TSN",
+      exchange: "NYSE",
+      ipoDate: "1963-10-01",
     },
     competitors: [
       { id: "c1", name: "JBS", descriptor: "Public · Meat processing" },

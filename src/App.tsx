@@ -12,7 +12,7 @@ export default function App() {
       <div className="fixed left-1/2 top-4 z-20 -translate-x-1/2">
         <div className="flex items-center gap-3 rounded-full border border-slate-200 bg-white/90 px-4 py-2 shadow-sm backdrop-blur">
           <span className="flex items-center gap-1.5 text-[13px] font-medium text-slate-700">
-            <PitchbookGlyph className="h-3 w-3 text-pitch-500" />
+            <PitchbookGlyph className="h-2 w-2 text-slate-400" />
             PitchBook access
           </span>
           <button

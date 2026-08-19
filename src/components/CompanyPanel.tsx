@@ -16,13 +16,14 @@ import { PitchbookProvider, usePitchbookConnected } from "../lib/pitchbook";
 import { Avatar } from "./ui";
 import { OverviewTab } from "./tabs/OverviewTab";
 import { FinancialsTab } from "./tabs/FinancialsTab";
+import { PeopleTab } from "./tabs/PeopleTab";
 
 const TABS = [
   "Overview",
   "Financials",
   "Notes",
   "Projects",
-  "Employees",
+  "People",
   "Documents",
   "Off Limits",
 ] as const;
@@ -72,7 +73,8 @@ export function CompanyPanel({
         <div className="panel-scroll flex-1 overflow-y-auto px-5 py-5">
           {tab === "Overview" && <OverviewTab company={company} />}
           {tab === "Financials" && <FinancialsTab company={company} />}
-          {tab !== "Overview" && tab !== "Financials" && (
+          {tab === "People" && <PeopleTab company={company} />}
+          {tab !== "Overview" && tab !== "Financials" && tab !== "People" && (
             <Placeholder tab={tab} />
           )}
         </div>
@@ -94,7 +96,20 @@ function Header({ company }: { company: Company }) {
               {company.name}
             </h2>
             <p className="text-[14px] text-slate-600">{company.location}</p>
-            <p className="mt-1 text-[13px] text-slate-400">No tags</p>
+            {company.tags.length > 0 ? (
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {company.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11.5px] font-medium text-brand-700 ring-1 ring-brand-100"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-1 text-[13px] text-slate-400">No tags</p>
+            )}
             <div className="mt-2 flex items-center gap-5 text-[13px] text-slate-600">
               <span className="inline-flex items-center gap-1.5">
                 <TrendingUp className="h-4 w-4 text-slate-400" />

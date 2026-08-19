@@ -62,6 +62,16 @@ export interface FinancingInfo {
   updated: string;
 }
 
+export interface Ownership {
+  status: "public" | "private";
+  /** Ticker symbol, public only. */
+  ticker?: string;
+  /** Listing exchange, public only, e.g. "NYSE". */
+  exchange?: string;
+  /** ISO IPO date, public only. */
+  ipoDate?: string;
+}
+
 export interface Company {
   // --- native fields ---
   name: string;
@@ -71,6 +81,8 @@ export interface Company {
   logoUrl?: string;
   description: string;
   founded: string;
+  /** Local tags created inside the platform. */
+  tags: string[];
   /** Revenue as stored on the native record (rounded band). */
   revenueNative: { value: string; year: string };
   /** Headcount band as stored on the native record. */
@@ -86,6 +98,7 @@ export interface Company {
     /** Precise/estimated revenue from PitchBook. */
     revenue: { value: string; year: string };
     tags: CompanyTags;
+    ownership: Ownership;
     competitors: Competitor[];
     investors: Investor[];
     financing: FinancingInfo;

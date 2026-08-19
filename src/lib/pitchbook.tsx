@@ -28,19 +28,11 @@ export function usePitchbookConnected() {
   return useContext(PitchbookContext);
 }
 
-/** The PitchBook source mark — a small diamond, kept muted for restraint. */
+/** The PitchBook source mark — a small muted dot, kept quiet for restraint. */
 export function PitchbookGlyph({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 10 10" className={className} aria-hidden="true">
-      <rect
-        x="1"
-        y="1"
-        width="8"
-        height="8"
-        rx="1.5"
-        transform="rotate(45 5 5)"
-        fill="currentColor"
-      />
+      <circle cx="5" cy="5" r="2.5" fill="currentColor" />
     </svg>
   );
 }
@@ -61,7 +53,7 @@ export function SourceTag({
       className={`group inline-flex items-center gap-1 text-[11px] leading-none text-slate-400 ${className}`}
       title={`Sourced from PitchBook${updated ? ` · Updated ${updated}` : ""}`}
     >
-      <PitchbookGlyph className="h-2 w-2 text-pitch-500/70 transition-colors group-hover:text-pitch-500" />
+      <PitchbookGlyph className="h-1.5 w-1.5 text-slate-400 transition-colors group-hover:text-slate-500" />
       <span>via PitchBook</span>
     </span>
   );

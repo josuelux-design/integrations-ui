@@ -8,7 +8,11 @@ import { SectionDivider, SectionHeading, StatCard } from "../ui";
 
 function sinceLabel(iso: string) {
   const d = new Date(iso);
-  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 export function FinancialsTab({ company }: { company: Company }) {
