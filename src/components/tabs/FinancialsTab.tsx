@@ -2,8 +2,8 @@ import { Plus } from "lucide-react";
 import type { Company, FundingRound, Investor } from "../../types";
 import {
   PitchbookGate,
+  PitchbookGlyph,
   PitchbookPromo,
-  SourceTag,
   usePitchbookConnected,
 } from "../../lib/pitchbook";
 import { SectionDivider, SectionHeading, StatCard } from "../ui";
@@ -131,10 +131,6 @@ function FundingRounds({
         }
       />
 
-      {/* Added in platform */}
-      <p className="mb-2 text-[13px] font-medium text-slate-500">
-        Added in platform
-      </p>
       {native.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-200 py-8 text-center">
           <p className="text-[13px] text-slate-500">
@@ -151,11 +147,11 @@ function FundingRounds({
       {/* From PitchBook */}
       <PitchbookGate>
         <div className="mt-5">
-          <div className="mb-2 flex items-center gap-2">
-            <h4 className="text-[13px] font-medium text-slate-500">
-              PitchBook funding rounds
-            </h4>
-            <SourceTag updated={updated} />
+          <div className="mb-2 flex items-center gap-1.5 text-[13px] font-medium text-slate-500">
+            <PitchbookGlyph className="h-1.5 w-1.5 text-slate-400" />
+            <span title={`Sourced from PitchBook · Updated ${updated}`}>
+              Via PitchBook
+            </span>
           </div>
           {pb.length === 0 ? (
             <p className="text-[13px] text-slate-400">
