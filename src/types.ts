@@ -113,6 +113,7 @@ export interface Company {
     revenue: { value: string; year: string };
     tags: CompanyTags;
     ownership: Ownership;
+    fundingRounds: FundingRound[];
     competitors: Competitor[];
     investors: Investor[];
     financing: FinancingInfo;

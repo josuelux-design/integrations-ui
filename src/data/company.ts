@@ -85,6 +85,29 @@ export const tysonFoods: Company = {
       exchange: "NYSE",
       ipoDate: "1963-10-01",
     },
+    fundingRounds: [
+      {
+        id: "pf1",
+        date: "2014-08-28",
+        round: "Merger/Acquisition",
+        investors: "Hillshire Brands",
+        amountRaised: "$8.55B",
+      },
+      {
+        id: "pf2",
+        date: "2001-09-28",
+        round: "Merger/Acquisition",
+        investors: "IBP, Inc.",
+        amountRaised: "$4.60B",
+      },
+      {
+        id: "pf3",
+        date: "1963-10-01",
+        round: "IPO",
+        investors: "",
+        amountRaised: "—",
+      },
+    ],
     competitors: [
       { id: "c1", name: "JBS", descriptor: "Public · Meat processing" },
       { id: "c2", name: "Cargill", descriptor: "Private · Food and agriculture" },
@@ -251,6 +274,36 @@ export const impossibleFoods: Company = {
     ownership: {
       status: "private",
     },
+    fundingRounds: [
+      {
+        id: "pf1",
+        date: "2021-11-23",
+        round: "Series H",
+        investors: "Mirae Asset Global, Temasek",
+        amountRaised: "$500M",
+      },
+      {
+        id: "pf2",
+        date: "2020-08-13",
+        round: "Series G",
+        investors: "Coatue Management",
+        amountRaised: "$200M",
+      },
+      {
+        id: "pf3",
+        date: "2020-03-16",
+        round: "Series F",
+        investors: "Mirae Asset, Khosla Ventures",
+        amountRaised: "$500M",
+      },
+      {
+        id: "pf4",
+        date: "2019-05-13",
+        round: "Series E",
+        investors: "Horizons Ventures, Temasek",
+        amountRaised: "$300M",
+      },
+    ],
     competitors: [
       { id: "c1", name: "Beyond Meat", descriptor: "Public · Plant-based meat" },
       { id: "c2", name: "Nestlé", descriptor: "Public · Packaged foods" },

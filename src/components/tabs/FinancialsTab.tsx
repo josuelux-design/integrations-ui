@@ -3,6 +3,7 @@ import type { Company, FundingRound, Investor } from "../../types";
 import {
   PitchbookGate,
   PitchbookPromo,
+  SourceTag,
   usePitchbookConnected,
 } from "../../lib/pitchbook";
 import { SectionDivider, SectionHeading, StatCard } from "../ui";
@@ -60,9 +61,13 @@ export function FinancialsTab({ company }: { company: Company }) {
         />
       </div>
 
-      {/* Funding rounds — native, kept from today's experience */}
+      {/* Funding rounds — native table kept from today, plus a PitchBook table */}
       <SectionDivider />
-      <FundingRounds rounds={company.fundingRounds} />
+      <FundingRounds
+        native={company.fundingRounds}
+        pb={pb.fundingRounds}
+        updated={pb.financing.updated}
+      />
 
       {/* Investors — PitchBook */}
       <PitchbookGate>
@@ -103,7 +108,15 @@ export function FinancialsTab({ company }: { company: Company }) {
   );
 }
 
-function FundingRounds({ rounds }: { rounds: FundingRound[] }) {
+function FundingRounds({
+  native,
+  pb,
+  updated,
+}: {
+  native: FundingRound[];
+  pb: FundingRound[];
+  updated: string;
+}) {
   return (
     <div>
       <SectionHeading
@@ -117,7 +130,12 @@ function FundingRounds({ rounds }: { rounds: FundingRound[] }) {
           </button>
         }
       />
-      {rounds.length === 0 ? (
+
+      {/* Added in platform */}
+      <p className="mb-2 text-[13px] font-medium text-slate-500">
+        Added in platform
+      </p>
+      {native.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-200 py-8 text-center">
           <p className="text-[13px] text-slate-500">
             <button className="font-medium text-brand-600 hover:text-brand-700">
@@ -127,43 +145,68 @@ function FundingRounds({ rounds }: { rounds: FundingRound[] }) {
           </p>
         </div>
       ) : (
-        <>
-          <div className="overflow-hidden rounded-xl border border-slate-100">
-            <table className="w-full table-fixed text-left">
-              <thead>
-                <tr className="border-b border-slate-100 bg-slate-50/60 text-[12px] font-medium uppercase tracking-wide text-slate-400">
-                  <th className="px-3.5 py-2 font-medium">Date</th>
-                  <th className="px-3.5 py-2 font-medium">Round</th>
-                  <th className="px-3.5 py-2 font-medium">Investors</th>
-                  <th className="px-3.5 py-2 text-right font-medium">Raised</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-[13px]">
-                {rounds.map((r) => (
-                  <tr key={r.id} className="text-slate-700">
-                    <td className="px-3.5 py-2.5 text-slate-500">
-                      {monthDayYear(r.date)}
-                    </td>
-                    <td className="px-3.5 py-2.5 font-medium text-slate-900">
-                      {r.round}
-                    </td>
-                    <td className="truncate px-3.5 py-2.5 text-slate-500">
-                      {r.investors || "—"}
-                    </td>
-                    <td className="px-3.5 py-2.5 text-right font-medium tabular-nums text-slate-900">
-                      {r.amountRaised}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-2 text-right text-[12px] text-slate-400">
-            Total rows: {rounds.length}
-          </p>
-        </>
+        <FundingTable rounds={native} />
       )}
+
+      {/* From PitchBook */}
+      <PitchbookGate>
+        <div className="mt-5">
+          <div className="mb-2 flex items-center gap-2">
+            <h4 className="text-[13px] font-medium text-slate-500">
+              PitchBook funding rounds
+            </h4>
+            <SourceTag updated={updated} />
+          </div>
+          {pb.length === 0 ? (
+            <p className="text-[13px] text-slate-400">
+              No funding rounds reported.
+            </p>
+          ) : (
+            <FundingTable rounds={pb} />
+          )}
+        </div>
+      </PitchbookGate>
     </div>
+  );
+}
+
+function FundingTable({ rounds }: { rounds: FundingRound[] }) {
+  return (
+    <>
+      <div className="overflow-hidden rounded-xl border border-slate-100">
+        <table className="w-full table-fixed text-left">
+          <thead>
+            <tr className="border-b border-slate-100 bg-slate-50/60 text-[12px] font-medium uppercase tracking-wide text-slate-400">
+              <th className="px-3.5 py-2 font-medium">Date</th>
+              <th className="px-3.5 py-2 font-medium">Round</th>
+              <th className="px-3.5 py-2 font-medium">Investors</th>
+              <th className="px-3.5 py-2 text-right font-medium">Raised</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-100 text-[13px]">
+            {rounds.map((r) => (
+              <tr key={r.id} className="text-slate-700">
+                <td className="px-3.5 py-2.5 text-slate-500">
+                  {monthDayYear(r.date)}
+                </td>
+                <td className="px-3.5 py-2.5 font-medium text-slate-900">
+                  {r.round}
+                </td>
+                <td className="truncate px-3.5 py-2.5 text-slate-500">
+                  {r.investors || "—"}
+                </td>
+                <td className="px-3.5 py-2.5 text-right font-medium tabular-nums text-slate-900">
+                  {r.amountRaised}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-2 text-right text-[12px] text-slate-400">
+        Total rows: {rounds.length}
+      </p>
+    </>
   );
 }
 
