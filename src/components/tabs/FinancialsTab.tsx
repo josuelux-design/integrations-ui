@@ -1,4 +1,5 @@
-import type { Company, Investor } from "../../types";
+import { Plus } from "lucide-react";
+import type { Company, FundingRound, Investor } from "../../types";
 import {
   PitchbookGate,
   PitchbookPromo,
@@ -59,6 +60,10 @@ export function FinancialsTab({ company }: { company: Company }) {
         />
       </div>
 
+      {/* Funding rounds — native, kept from today's experience */}
+      <SectionDivider />
+      <FundingRounds rounds={company.fundingRounds} />
+
       {/* Investors — PitchBook */}
       <PitchbookGate>
         <SectionDivider />
@@ -96,6 +101,79 @@ export function FinancialsTab({ company }: { company: Company }) {
       )}
     </div>
   );
+}
+
+function FundingRounds({ rounds }: { rounds: FundingRound[] }) {
+  return (
+    <div>
+      <SectionHeading
+        title="Funding rounds"
+        action={
+          <button
+            className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-colors hover:border-brand-200 hover:text-brand-600"
+            aria-label="Add funding round"
+          >
+            <Plus className="h-4 w-4" />
+          </button>
+        }
+      />
+      {rounds.length === 0 ? (
+        <div className="rounded-xl border border-dashed border-slate-200 py-8 text-center">
+          <p className="text-[13px] text-slate-500">
+            <button className="font-medium text-brand-600 hover:text-brand-700">
+              Add funding round data
+            </button>{" "}
+            for this company
+          </p>
+        </div>
+      ) : (
+        <>
+          <div className="overflow-hidden rounded-xl border border-slate-100">
+            <table className="w-full table-fixed text-left">
+              <thead>
+                <tr className="border-b border-slate-100 bg-slate-50/60 text-[12px] font-medium uppercase tracking-wide text-slate-400">
+                  <th className="px-3.5 py-2 font-medium">Date</th>
+                  <th className="px-3.5 py-2 font-medium">Round</th>
+                  <th className="px-3.5 py-2 font-medium">Investors</th>
+                  <th className="px-3.5 py-2 text-right font-medium">Raised</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-[13px]">
+                {rounds.map((r) => (
+                  <tr key={r.id} className="text-slate-700">
+                    <td className="px-3.5 py-2.5 text-slate-500">
+                      {monthDayYear(r.date)}
+                    </td>
+                    <td className="px-3.5 py-2.5 font-medium text-slate-900">
+                      {r.round}
+                    </td>
+                    <td className="truncate px-3.5 py-2.5 text-slate-500">
+                      {r.investors || "—"}
+                    </td>
+                    <td className="px-3.5 py-2.5 text-right font-medium tabular-nums text-slate-900">
+                      {r.amountRaised}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-right text-[12px] text-slate-400">
+            Total rows: {rounds.length}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
+function monthDayYear(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 function InvestorList({

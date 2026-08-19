@@ -25,6 +25,15 @@ export const tysonFoods: Company = {
     { label: "Company Representative", value: "—" },
     { label: "Security level", value: "—" },
   ],
+  fundingRounds: [
+    {
+      id: "fr1",
+      date: "2026-08-19",
+      round: "Acquisition",
+      investors: "",
+      amountRaised: "$123.46T",
+    },
+  ],
   employees: [
     {
       id: "e1",
@@ -185,6 +194,29 @@ export const impossibleFoods: Company = {
     { label: "GPTW Certificate", value: "—" },
     { label: "Company Representative", value: "—" },
     { label: "Security level", value: "—" },
+  ],
+  fundingRounds: [
+    {
+      id: "fr1",
+      date: "2021-11-01",
+      round: "Series H",
+      investors: "Mirae Asset, Temasek",
+      amountRaised: "$500M",
+    },
+    {
+      id: "fr2",
+      date: "2020-08-01",
+      round: "Series G",
+      investors: "Coatue Management",
+      amountRaised: "$200M",
+    },
+    {
+      id: "fr3",
+      date: "2019-05-01",
+      round: "Series E",
+      investors: "Khosla Ventures, Horizons Ventures",
+      amountRaised: "$300M",
+    },
   ],
   employees: [
     {

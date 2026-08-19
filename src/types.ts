@@ -62,6 +62,18 @@ export interface FinancingInfo {
   updated: string;
 }
 
+export interface FundingRound {
+  id: string;
+  /** ISO date of the round. */
+  date: string;
+  /** e.g. "Series B", "Acquisition", "IPO". */
+  round: string;
+  /** Comma-joined investor names, or empty. */
+  investors?: string;
+  /** Preformatted amount, e.g. "$500M". */
+  amountRaised: string;
+}
+
 export interface Ownership {
   status: "public" | "private";
   /** Ticker symbol, public only. */
@@ -90,6 +102,8 @@ export interface Company {
   projects: { total: number; open: number; closed: number };
   additionalDetails: { label: string; value: string }[];
   employees: TeamMember[];
+  /** Funding rounds entered manually in the platform (kept from today's UI). */
+  fundingRounds: FundingRound[];
 
   // --- pitchbook-enriched fields ---
   pitchbook: {
