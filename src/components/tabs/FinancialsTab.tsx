@@ -6,9 +6,8 @@ import {
 } from "../../lib/pitchbook";
 import { SectionDivider, SectionHeading, StatCard } from "../ui";
 
-function sinceLabel(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
+function monthYear(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
     month: "short",
     year: "numeric",
     timeZone: "UTC",
@@ -18,6 +17,7 @@ function sinceLabel(iso: string) {
 export function FinancialsTab({ company }: { company: Company }) {
   const connected = usePitchbookConnected();
   const pb = company.pitchbook;
+  const own = pb.ownership;
   const active = pb.investors.filter((i) => i.status === "active");
   const former = pb.investors.filter((i) => i.status === "former");
 
@@ -39,8 +39,15 @@ export function FinancialsTab({ company }: { company: Company }) {
           updated={pb.financing.updated}
         />
         <StatCard
-          label="Financing status"
-          value={connected ? pb.financing.status : "—"}
+          label="Ownership"
+          value={
+            connected ? (own.status === "public" ? "Public" : "Private") : "—"
+          }
+          sub={
+            connected && own.status === "public"
+              ? `${own.exchange}: ${own.ticker} · IPO ${monthYear(own.ipoDate!)}`
+              : undefined
+          }
           source={connected}
           updated={pb.financing.updated}
         />
@@ -66,19 +73,16 @@ export function FinancialsTab({ company }: { company: Company }) {
         </div>
       </PitchbookGate>
 
-      {/* Financing status note — PitchBook */}
+      {/* Financing status — de-emphasized to a quiet detail line */}
       <PitchbookGate>
-        <SectionDivider />
-        <div>
-          <SectionHeading
-            title="Financing status"
-            source
-            updated={pb.financing.updated}
-          />
-          <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-[12px] font-medium text-emerald-700 ring-1 ring-emerald-100">
+        <div className="mt-6 border-t border-slate-100 pt-4">
+          <p className="text-[12px] uppercase tracking-wide text-slate-400">
+            Financing status
+          </p>
+          <p className="mt-1 text-[13px] text-slate-600">
             {pb.financing.status}
-          </span>
-          <p className="mt-3 text-[14px] leading-relaxed text-slate-600">
+          </p>
+          <p className="mt-1 text-[12px] leading-relaxed text-slate-400">
             {pb.financing.note}
           </p>
         </div>
@@ -87,7 +91,7 @@ export function FinancialsTab({ company }: { company: Company }) {
       {!connected && (
         <>
           <SectionDivider />
-          <PitchbookPromo summary="Active and former investors, dates of first investment, and financing status notes become available when your workspace is connected to PitchBook." />
+          <PitchbookPromo summary="Active and former investors, dates of first investment, and ownership details become available when your workspace is connected to PitchBook." />
         </>
       )}
     </div>
@@ -136,7 +140,7 @@ function InvestorList({
             <div className="text-right">
               <p className="text-[12px] text-slate-400">Investor since</p>
               <p className="text-[13px] font-medium text-slate-600">
-                {sinceLabel(inv.since)}
+                {monthYear(inv.since)}
               </p>
             </div>
           </div>
