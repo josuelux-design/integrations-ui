@@ -162,3 +162,128 @@ export const tysonFoods: Company = {
     ],
   },
 };
+
+/**
+ * A private, venture-backed company to exercise the "Private" ownership card
+ * (no ticker/IPO) and VC-style investors. Placeholder figures.
+ */
+export const impossibleFoods: Company = {
+  name: "Impossible Foods",
+  location: "Redwood City, CA, United States",
+  website: "https://impossiblefoods.com",
+  linkedin: "https://www.linkedin.com/company/impossible-foods",
+  logoUrl: "https://logo.clearbit.com/impossiblefoods.com",
+  description:
+    "Impossible Foods makes plant-based meat, dairy, and fish products from simple ingredients, engineered to deliver the taste and nutrition of animal products with a fraction of the environmental footprint.",
+  founded: "Jul 2011",
+  tags: ["Prospect", "Plant-based"],
+  revenueNative: { value: "—", year: "2024" },
+  headcountNative: { value: "1001-5000", year: "2024" },
+  projects: { total: 1, open: 1, closed: 0 },
+  additionalDetails: [
+    { label: "Asset Class", value: "—" },
+    { label: "GPTW Certificate", value: "—" },
+    { label: "Company Representative", value: "—" },
+    { label: "Security level", value: "—" },
+  ],
+  employees: [
+    {
+      id: "e1",
+      name: "Peter McGuinness",
+      title: "Chief Executive Officer",
+      location: "Redwood City, California, United States",
+      linkedin: "#",
+      email: "#",
+    },
+    {
+      id: "e2",
+      name: "Dan Greene",
+      title: "Chief Operating Officer",
+      location: "Oakland, California, United States",
+      linkedin: "#",
+    },
+  ],
+  pitchbook: {
+    headcount: { value: "820", year: "2024" },
+    revenue: { value: "$380M (est.)", year: "2023" },
+    tags: {
+      sectors: ["Consumer Products and Services (B2C)", "Food Products"],
+      verticals: ["Foodtech", "Manufacturing", "Plant-based"],
+      keywords: [
+        "Alternative protein",
+        "Plant-based meat",
+        "Sustainability",
+        "CPG",
+      ],
+    },
+    ownership: {
+      status: "private",
+    },
+    competitors: [
+      { id: "c1", name: "Beyond Meat", descriptor: "Public · Plant-based meat" },
+      { id: "c2", name: "Nestlé", descriptor: "Public · Packaged foods" },
+      { id: "c3", name: "Oatly", descriptor: "Public · Plant-based dairy" },
+      { id: "c4", name: "Eat Just", descriptor: "Private · Alternative protein" },
+    ],
+    investors: [
+      {
+        id: "i1",
+        name: "Khosla Ventures",
+        since: "2011-07-01",
+        status: "active",
+        role: "Lead · Venture",
+      },
+      {
+        id: "i2",
+        name: "Google Ventures",
+        since: "2013-10-01",
+        status: "active",
+        role: "Venture",
+      },
+      {
+        id: "i3",
+        name: "Temasek",
+        since: "2017-08-01",
+        status: "active",
+        role: "Growth",
+      },
+      {
+        id: "i4",
+        name: "Bill Gates",
+        since: "2014-08-01",
+        status: "former",
+        role: "Angel",
+      },
+    ],
+    financing: {
+      status: "Venture Backed",
+      note: "Late-stage venture-backed company. Latest reported round: Series H. Total known raised is illustrative in this prototype.",
+      updated: "Aug 19, 2026",
+    },
+    leadership: [
+      {
+        id: "l1",
+        name: "Peter McGuinness",
+        title: "Chief Executive Officer",
+        leadership: true,
+        linkedin: "#",
+      },
+      {
+        id: "l2",
+        name: "Patrick O. Brown",
+        title: "Founder & Chief Visionary Officer",
+        leadership: true,
+        linkedin: "#",
+      },
+      {
+        id: "l3",
+        name: "Sanjay Shah",
+        title: "Chief Financial Officer",
+        leadership: true,
+        linkedin: "#",
+      },
+    ],
+  },
+};
+
+export const companies: Company[] = [tysonFoods, impossibleFoods];
