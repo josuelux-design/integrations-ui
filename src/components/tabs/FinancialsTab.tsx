@@ -89,7 +89,7 @@ export function FinancialsTab({ company }: { company: Company }) {
           <p className="text-[12px] uppercase tracking-wide text-slate-400">
             Financing status
           </p>
-          <p className="mt-1 text-[13px] text-slate-600">
+          <p className="mt-1 text-[12px] text-slate-600">
             {pb.financing.status}
           </p>
           <p className="mt-1 text-[12px] leading-relaxed text-slate-400">
@@ -133,7 +133,7 @@ function FundingRounds({
 
       {native.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-200 py-8 text-center">
-          <p className="text-[13px] text-slate-500">
+          <p className="text-[12px] text-slate-500">
             <button className="font-medium text-brand-600 hover:text-brand-700">
               Add funding round data
             </button>{" "}
@@ -147,14 +147,14 @@ function FundingRounds({
       {/* From PitchBook */}
       <PitchbookGate>
         <div className="mt-5">
-          <div className="mb-2 flex items-center gap-1.5 text-[13px] font-medium text-slate-500">
+          <div className="mb-2 flex items-center gap-1.5 text-[12px] font-medium text-slate-500">
             <PitchbookGlyph className="h-1.5 w-1.5 text-slate-400" />
             <span title={`Sourced from PitchBook · Updated ${updated}`}>
               Via PitchBook
             </span>
           </div>
           {pb.length === 0 ? (
-            <p className="text-[13px] text-slate-400">
+            <p className="text-[12px] text-slate-400">
               No funding rounds reported.
             </p>
           ) : (
@@ -179,7 +179,7 @@ function FundingTable({ rounds }: { rounds: FundingRound[] }) {
               <th className="px-3.5 py-2 text-right font-medium">Raised</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 text-[13px]">
+          <tbody className="divide-y divide-slate-100 text-[12px]">
             {rounds.map((r) => (
               <tr key={r.id} className="text-slate-700">
                 <td className="px-3.5 py-2.5 text-slate-500">
@@ -256,7 +256,7 @@ function InvestorList({
             </div>
             <div className="text-right">
               <p className="text-[12px] text-slate-400">Investor since</p>
-              <p className="text-[13px] font-medium text-slate-600">
+              <p className="text-[12px] font-medium text-slate-600">
                 {monthYear(inv.since)}
               </p>
             </div>

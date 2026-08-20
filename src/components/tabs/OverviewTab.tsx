@@ -79,7 +79,7 @@ export function OverviewTab({ company }: { company: Company }) {
         <SectionHeading
           title="Tags"
           action={
-            <button className="inline-flex items-center gap-1 text-[13px] font-medium text-brand-600 hover:text-brand-700">
+            <button className="inline-flex items-center gap-1 text-[12px] font-medium text-brand-600 hover:text-brand-700">
               <Plus className="h-3.5 w-3.5" /> Add tag
             </button>
           }
@@ -93,13 +93,13 @@ export function OverviewTab({ company }: { company: Company }) {
             ))}
           </div>
         ) : (
-          <p className="text-[13px] text-slate-400">No tags yet</p>
+          <p className="text-[12px] text-slate-400">No tags yet</p>
         )}
 
         <PitchbookGate>
           <div className="mt-5">
             <div className="mb-3 flex items-center gap-2">
-              <h4 className="text-[13px] font-medium text-slate-500">
+              <h4 className="text-[12px] font-medium text-slate-500">
                 PitchBook tags
               </h4>
             </div>
@@ -138,7 +138,7 @@ export function OverviewTab({ company }: { company: Company }) {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-4 text-[13px]">
+      <div className="mt-6 flex items-center gap-4 border-t border-slate-100 pt-4 text-[12px]">
         <a
           href={company.website}
           className="inline-flex items-center gap-1 font-medium text-brand-600 hover:text-brand-700"
@@ -202,7 +202,7 @@ function CompetitorsSection({ competitors }: { competitors: Competitor[] }) {
       {competitors.length > 4 && (
         <button
           onClick={() => setExpanded((v) => !v)}
-          className="mt-2.5 text-[13px] font-medium text-brand-600 hover:text-brand-700"
+          className="mt-2.5 text-[12px] font-medium text-brand-600 hover:text-brand-700"
         >
           {expanded ? "Show less" : `Show all ${competitors.length}`}
         </button>

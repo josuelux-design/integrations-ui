@@ -46,7 +46,7 @@ export function CompanyPanel({
         {/* Pager row */}
         <div className="flex items-center justify-between px-5 pt-4">
           <span className="w-8" />
-          <div className="flex items-center gap-2 text-[15px] text-slate-500">
+          <div className="flex items-center gap-2 text-[14px] text-slate-500">
             <button className="rounded-md p-1 hover:bg-slate-100">
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -92,7 +92,7 @@ function Header({ company }: { company: Company }) {
         <div className="flex items-start gap-3">
           <Avatar name={company.name} src={company.logoUrl} size={52} />
           <div>
-            <h2 className="text-[18px] font-medium text-brand-600">
+            <h2 className="text-[16px] font-medium text-brand-600">
               {company.name}
             </h2>
             <p className="text-[14px] text-slate-600">{company.location}</p>
@@ -101,16 +101,16 @@ function Header({ company }: { company: Company }) {
                 {company.tags.map((t) => (
                   <span
                     key={t}
-                    className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11.5px] font-medium text-brand-700 ring-1 ring-brand-100"
+                    className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[12px] font-medium text-brand-700 ring-1 ring-brand-100"
                   >
                     {t}
                   </span>
                 ))}
               </div>
             ) : (
-              <p className="mt-1 text-[13px] text-slate-400">No tags</p>
+              <p className="mt-1 text-[12px] text-slate-400">No tags</p>
             )}
-            <div className="mt-2 flex items-center gap-5 text-[13px] text-slate-600">
+            <div className="mt-2 flex items-center gap-5 text-[12px] text-slate-600">
               <span className="inline-flex items-center gap-1.5">
                 <TrendingUp className="h-4 w-4 text-slate-400" />
                 {connected ? pb.revenue.value : company.revenueNative.value}
@@ -176,8 +176,8 @@ function Tabs({ tab, setTab }: { tab: Tab; setTab: (t: Tab) => void }) {
 function Placeholder({ tab }: { tab: string }) {
   return (
     <div className="flex h-64 flex-col items-center justify-center text-center">
-      <p className="text-[15px] font-medium text-slate-500">{tab}</p>
-      <p className="mt-1 text-[13px] text-slate-400">
+      <p className="text-[16px] font-medium text-slate-500">{tab}</p>
+      <p className="mt-1 text-[12px] text-slate-400">
         Not part of this prototype — focus is the Overview and Financials tabs.
       </p>
     </div>

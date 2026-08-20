@@ -23,6 +23,8 @@ body {
   margin: 0;
   background: #eef0f4;
   color: #0f172a;
+  /* Base type scale: 12px base, 14px and 16px as the larger steps. */
+  font-size: 12px;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }

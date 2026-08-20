@@ -26,7 +26,7 @@ export default function App() {
                 }`}
               >
                 {c.name}
-                <span className="ml-1 text-[10px] uppercase tracking-wide text-slate-400">
+                <span className="ml-1 text-[12px] uppercase tracking-wide text-slate-400">
                   {c.pitchbook.ownership.status === "public" ? "Pub" : "Priv"}
                 </span>
               </button>
@@ -36,7 +36,7 @@ export default function App() {
           <span className="h-5 w-px bg-slate-200" />
 
           {/* PitchBook access toggle */}
-          <span className="flex items-center gap-1.5 text-[13px] font-medium text-slate-700">
+          <span className="flex items-center gap-1.5 text-[12px] font-medium text-slate-700">
             <PitchbookGlyph className="h-2 w-2 text-slate-400" />
             PitchBook access
           </span>

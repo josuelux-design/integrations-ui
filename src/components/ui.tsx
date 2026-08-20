@@ -79,7 +79,7 @@ export function SectionHeading({
   return (
     <div className="mb-3 flex items-center justify-between gap-3">
       <div className="flex items-center gap-2">
-        <h3 className="text-[15px] font-medium text-slate-900">{title}</h3>
+        <h3 className="text-[16px] font-medium text-slate-900">{title}</h3>
         {source && <SourceTag updated={updated} />}
       </div>
       {action}
@@ -101,7 +101,7 @@ export function Field({
 }) {
   return (
     <div>
-      <p className="text-[13px] text-slate-500">{label}</p>
+      <p className="text-[12px] text-slate-500">{label}</p>
       <p className="mt-0.5 text-[14px] text-slate-900">{value}</p>
       {source && <SourceTag updated={updated} className="mt-1" />}
     </div>
@@ -125,7 +125,7 @@ export function StatCard({
   return (
     <div className="rounded-xl bg-slate-50 px-3.5 py-3">
       <p className="text-[12px] text-slate-500">{label}</p>
-      <p className="mt-1 text-[18px] font-medium leading-tight text-slate-900">
+      <p className="mt-1 text-[16px] font-medium leading-tight text-slate-900">
         {value}
       </p>
       {sub && <p className="mt-0.5 text-[12px] text-slate-400">{sub}</p>}

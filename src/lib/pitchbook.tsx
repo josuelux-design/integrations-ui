@@ -50,7 +50,7 @@ export function SourceTag({
 }) {
   return (
     <span
-      className={`group inline-flex items-center gap-1 text-[11px] leading-none text-slate-400 ${className}`}
+      className={`group inline-flex items-center gap-1 text-[12px] leading-none text-slate-400 ${className}`}
       title={`Sourced from PitchBook${updated ? ` · Updated ${updated}` : ""}`}
     >
       <PitchbookGlyph className="h-1.5 w-1.5 text-slate-400 transition-colors group-hover:text-slate-500" />
@@ -82,7 +82,7 @@ export function PitchbookPromo({ summary }: { summary: string }) {
         <Lock className="h-4 w-4 text-slate-400" />
       </span>
       <div className="min-w-0">
-        <p className="text-[13px] font-medium text-slate-700">
+        <p className="text-[12px] font-medium text-slate-700">
           Enrich this company with PitchBook
         </p>
         <p className="mt-0.5 text-[12px] leading-relaxed text-slate-500">

@@ -33,7 +33,7 @@ export function PeopleTab({ company }: { company: Company }) {
                   <p className="truncate text-[14px] font-medium text-slate-900">
                     {m.name}
                   </p>
-                  <p className="truncate text-[12.5px] text-slate-500">
+                  <p className="truncate text-[12px] text-slate-500">
                     {m.title}
                   </p>
                 </div>
@@ -57,7 +57,7 @@ export function PeopleTab({ company }: { company: Company }) {
         <SectionHeading
           title="People"
           action={
-            <span className="text-[13px] text-slate-400">
+            <span className="text-[12px] text-slate-400">
               {company.employees.length} tracked
             </span>
           }
@@ -98,7 +98,7 @@ function PersonRow({ person }: { person: TeamMember }) {
               />
             )}
           </div>
-          <p className="truncate text-[13px] text-slate-600">
+          <p className="truncate text-[12px] text-slate-600">
             {person.former && (
               <span className="italic text-slate-400">Former </span>
             )}
@@ -113,7 +113,7 @@ function PersonRow({ person }: { person: TeamMember }) {
           </div>
         </div>
       </div>
-      <div className="text-right text-[13px] text-slate-500">
+      <div className="text-right text-[12px] text-slate-500">
         {person.location ? (
           person.location.split(", ").map((line, i) => (
             <p key={i} className={i === 0 ? "text-slate-700" : "text-slate-400"}>
