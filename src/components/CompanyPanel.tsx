@@ -4,7 +4,6 @@ import {
   ChevronRight,
   X,
   Link2,
-  Linkedin,
   Pencil,
   MoreVertical,
   TrendingUp,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import type { Company } from "../types";
 import { PitchbookProvider, usePitchbookConnected } from "../lib/pitchbook";
+import { LinkedInLogo } from "../lib/icons";
 import { Avatar } from "./ui";
 import { OverviewTab } from "./tabs/OverviewTab";
 import { FinancialsTab } from "./tabs/FinancialsTab";
@@ -129,8 +129,8 @@ function Header({ company }: { company: Company }) {
               <a href={company.website} className="text-slate-400 hover:text-brand-600">
                 <Link2 className="h-4 w-4" />
               </a>
-              <a href={company.linkedin} className="text-brand-600">
-                <Linkedin className="h-4 w-4" />
+              <a href={company.linkedin}>
+                <LinkedInLogo className="h-4 w-4" />
               </a>
             </div>
           </div>

@@ -1,10 +1,11 @@
-import { Linkedin, Mail, Phone, Flag, Briefcase } from "lucide-react";
+import { Mail, Phone, Flag, Briefcase } from "lucide-react";
 import type { Company, TeamMember } from "../../types";
 import {
   PitchbookGate,
   PitchbookPromo,
   usePitchbookConnected,
 } from "../../lib/pitchbook";
+import { LinkedInLogo } from "../../lib/icons";
 import { Avatar, SectionDivider, SectionHeading } from "../ui";
 
 export function PeopleTab({ company }: { company: Company }) {
@@ -36,9 +37,7 @@ export function PeopleTab({ company }: { company: Company }) {
                     {m.title}
                   </p>
                 </div>
-                {m.linkedin && (
-                  <Linkedin className="h-4 w-4 shrink-0 text-slate-300" />
-                )}
+                {m.linkedin && <LinkedInLogo className="h-4 w-4 shrink-0" />}
               </div>
             ))}
           </div>
@@ -106,9 +105,7 @@ function PersonRow({ person }: { person: TeamMember }) {
             {person.title}
           </p>
           <div className="mt-1.5 flex items-center gap-2.5 text-slate-300">
-            {person.linkedin && (
-              <Linkedin className="h-3.5 w-3.5 hover:text-brand-600" />
-            )}
+            {person.linkedin && <LinkedInLogo className="h-3.5 w-3.5" />}
             {person.email && <Mail className="h-3.5 w-3.5 hover:text-brand-600" />}
             {person.phone && (
               <Phone className="h-3.5 w-3.5 hover:text-brand-600" />
