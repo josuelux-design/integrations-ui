@@ -61,14 +61,6 @@ export function FinancialsTab({ company }: { company: Company }) {
         />
       </div>
 
-      {/* Funding rounds — native table kept from today, plus a PitchBook table */}
-      <SectionDivider />
-      <FundingRounds
-        native={company.fundingRounds}
-        pb={pb.fundingRounds}
-        updated={pb.financing.updated}
-      />
-
       {/* Investors — PitchBook */}
       <PitchbookGate>
         <SectionDivider />
@@ -82,6 +74,14 @@ export function FinancialsTab({ company }: { company: Company }) {
           )}
         </div>
       </PitchbookGate>
+
+      {/* Funding rounds — native table kept from today, plus a PitchBook table */}
+      <SectionDivider />
+      <FundingRounds
+        native={company.fundingRounds}
+        pb={pb.fundingRounds}
+        updated={pb.financing.updated}
+      />
 
       {/* Financing status — de-emphasized to a quiet detail line */}
       <PitchbookGate>
