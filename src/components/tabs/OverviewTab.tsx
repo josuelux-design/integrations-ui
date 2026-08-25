@@ -38,6 +38,7 @@ export function OverviewTab({ company }: { company: Company }) {
           sub={connected ? pb.revenue.year : company.revenueNative.year}
           source={connected}
           updated={pb.financing.updated}
+          trend={connected ? pb.revenue.trend : undefined}
         />
         <StatCard
           label="Headcount"
@@ -45,6 +46,7 @@ export function OverviewTab({ company }: { company: Company }) {
           sub={connected ? pb.headcount.year : company.headcountNative.year}
           source={connected}
           updated={pb.financing.updated}
+          trend={connected ? pb.headcount.trend : undefined}
         />
         <StatCard label="Founded" value={company.founded} />
         <StatCard

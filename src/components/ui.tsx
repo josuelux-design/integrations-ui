@@ -108,6 +108,52 @@ export function Field({
   );
 }
 
+/** Tiny inline trend line for a metric series (most-recent-last). */
+export function Sparkline({
+  data,
+  width = 68,
+  height = 20,
+}: {
+  data: number[];
+  width?: number;
+  height?: number;
+}) {
+  if (data.length < 2) return null;
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const span = max - min || 1;
+  const stepX = width / (data.length - 1);
+  const pad = 2;
+  const points = data.map((d, i) => {
+    const x = i * stepX;
+    const y = pad + (height - pad * 2) * (1 - (d - min) / span);
+    return [x, y] as const;
+  });
+  const path = points.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+  const rising = data[data.length - 1] >= data[0];
+  const stroke = rising ? "#059669" : "#e0492f";
+  const last = points[points.length - 1];
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      className="overflow-visible"
+      aria-hidden="true"
+    >
+      <polyline
+        points={path}
+        fill="none"
+        stroke={stroke}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx={last[0]} cy={last[1]} r="1.8" fill={stroke} />
+    </svg>
+  );
+}
+
 /** Metric tile used in the snapshot row. */
 export function StatCard({
   label,
@@ -115,19 +161,24 @@ export function StatCard({
   sub,
   source,
   updated,
+  trend,
 }: {
   label: string;
   value: ReactNode;
   sub?: ReactNode;
   source?: boolean;
   updated?: string;
+  trend?: number[];
 }) {
   return (
     <div className="rounded-xl bg-slate-50 px-3.5 py-3">
       <p className="text-[12px] text-slate-500">{label}</p>
-      <p className="mt-1 text-[16px] font-medium leading-tight text-slate-900">
-        {value}
-      </p>
+      <div className="mt-1 flex items-end justify-between gap-2">
+        <p className="text-[16px] font-medium leading-tight text-slate-900">
+          {value}
+        </p>
+        {trend && trend.length > 1 && <Sparkline data={trend} />}
+      </div>
       {sub && <p className="mt-0.5 text-[12px] text-slate-400">{sub}</p>}
       {source && <SourceTag updated={updated} className="mt-1.5" />}
     </div>

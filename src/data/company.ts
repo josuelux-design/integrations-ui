@@ -18,21 +18,22 @@ export const tysonFoods: Company = {
   tags: ["Client", "Priority account", "Protein sector"],
   revenueNative: { value: "$52.88B", year: "2024" },
   headcountNative: { value: "10001+", year: "2024" },
-  projects: { total: 3, open: 0, closed: 0 },
+  projects: { total: 3, open: 1, closed: 2 },
+  projectList: [
+    {
+      id: "p1",
+      name: "VP Supply Chain search",
+      status: "open",
+      investors: ["The Vanguard Group", "BlackRock"],
+    },
+    { id: "p2", name: "Board advisory — Prepared Foods", status: "closed" },
+    { id: "p3", name: "CFO succession", status: "closed" },
+  ],
   additionalDetails: [
     { label: "Asset Class", value: "—" },
     { label: "GPTW Certificate", value: "No" },
     { label: "Company Representative", value: "—" },
     { label: "Security level", value: "—" },
-  ],
-  fundingRounds: [
-    {
-      id: "fr1",
-      date: "2026-08-19",
-      round: "Acquisition",
-      investors: "",
-      amountRaised: "$123.46T",
-    },
   ],
   employees: [
     {
@@ -65,8 +66,16 @@ export const tysonFoods: Company = {
     },
   ],
   pitchbook: {
-    headcount: { value: "139,000", year: "2024" },
-    revenue: { value: "$53.31B", year: "2024" },
+    headcount: {
+      value: "139,000",
+      year: "2024",
+      trend: [124000, 122000, 137000, 142000, 139000],
+    },
+    revenue: {
+      value: "$53.31B",
+      year: "2024",
+      trend: [43.2, 47.0, 53.3, 52.9, 53.3],
+    },
     tags: {
       sectors: ["Consumer Products and Services (B2C)", "Food Products"],
       verticals: ["Manufacturing", "Food and Beverage", "Agtech"],
@@ -85,28 +94,11 @@ export const tysonFoods: Company = {
       exchange: "NYSE",
       ipoDate: "1963-10-01",
     },
-    fundingRounds: [
-      {
-        id: "pf1",
-        date: "2014-08-28",
-        round: "Merger/Acquisition",
-        investors: "Hillshire Brands",
-        amountRaised: "$8.55B",
-      },
-      {
-        id: "pf2",
-        date: "2001-09-28",
-        round: "Merger/Acquisition",
-        investors: "IBP, Inc.",
-        amountRaised: "$4.60B",
-      },
-      {
-        id: "pf3",
-        date: "1963-10-01",
-        round: "IPO",
-        investors: "",
-        amountRaised: "—",
-      },
+    financialSignals: [
+      { label: "Public", tone: "neutral" },
+      { label: "Profitable", tone: "positive" },
+      { label: "Dividend payer", tone: "positive" },
+      { label: "Revenue declining", tone: "caution" },
     ],
     competitors: [
       { id: "c1", name: "JBS", descriptor: "Public · Meat processing" },
@@ -175,6 +167,7 @@ export const tysonFoods: Company = {
         leadership: true,
         avatarUrl: "https://i.pravatar.cc/96?img=47",
         linkedin: "#",
+        inThrive: false,
       },
       {
         id: "l4",
@@ -190,6 +183,7 @@ export const tysonFoods: Company = {
         title: "SVP & Chief Accounting Officer",
         leadership: true,
         linkedin: "#",
+        inThrive: false,
       },
     ],
   },
@@ -212,34 +206,19 @@ export const impossibleFoods: Company = {
   revenueNative: { value: "—", year: "2024" },
   headcountNative: { value: "1001-5000", year: "2024" },
   projects: { total: 1, open: 1, closed: 0 },
+  projectList: [
+    {
+      id: "p1",
+      name: "Head of R&D search",
+      status: "open",
+      investors: ["Khosla Ventures", "Temasek"],
+    },
+  ],
   additionalDetails: [
     { label: "Asset Class", value: "—" },
     { label: "GPTW Certificate", value: "—" },
     { label: "Company Representative", value: "—" },
     { label: "Security level", value: "—" },
-  ],
-  fundingRounds: [
-    {
-      id: "fr1",
-      date: "2021-11-01",
-      round: "Series H",
-      investors: "Mirae Asset, Temasek",
-      amountRaised: "$500M",
-    },
-    {
-      id: "fr2",
-      date: "2020-08-01",
-      round: "Series G",
-      investors: "Coatue Management",
-      amountRaised: "$200M",
-    },
-    {
-      id: "fr3",
-      date: "2019-05-01",
-      round: "Series E",
-      investors: "Khosla Ventures, Horizons Ventures",
-      amountRaised: "$300M",
-    },
   ],
   employees: [
     {
@@ -259,8 +238,16 @@ export const impossibleFoods: Company = {
     },
   ],
   pitchbook: {
-    headcount: { value: "820", year: "2024" },
-    revenue: { value: "$380M (est.)", year: "2023" },
+    headcount: {
+      value: "820",
+      year: "2024",
+      trend: [400, 560, 700, 790, 820],
+    },
+    revenue: {
+      value: "$380M (est.)",
+      year: "2023",
+      trend: [95, 180, 280, 340, 380],
+    },
     tags: {
       sectors: ["Consumer Products and Services (B2C)", "Food Products"],
       verticals: ["Foodtech", "Manufacturing", "Plant-based"],
@@ -274,35 +261,11 @@ export const impossibleFoods: Company = {
     ownership: {
       status: "private",
     },
-    fundingRounds: [
-      {
-        id: "pf1",
-        date: "2021-11-23",
-        round: "Series H",
-        investors: "Mirae Asset Global, Temasek",
-        amountRaised: "$500M",
-      },
-      {
-        id: "pf2",
-        date: "2020-08-13",
-        round: "Series G",
-        investors: "Coatue Management",
-        amountRaised: "$200M",
-      },
-      {
-        id: "pf3",
-        date: "2020-03-16",
-        round: "Series F",
-        investors: "Mirae Asset, Khosla Ventures",
-        amountRaised: "$500M",
-      },
-      {
-        id: "pf4",
-        date: "2019-05-13",
-        round: "Series E",
-        investors: "Horizons Ventures, Temasek",
-        amountRaised: "$300M",
-      },
+    financialSignals: [
+      { label: "Venture backed", tone: "neutral" },
+      { label: "Late stage", tone: "neutral" },
+      { label: "High growth", tone: "positive" },
+      { label: "Pre-profit", tone: "caution" },
     ],
     competitors: [
       { id: "c1", name: "Beyond Meat", descriptor: "Public · Plant-based meat" },
@@ -316,7 +279,8 @@ export const impossibleFoods: Company = {
         name: "Khosla Ventures",
         since: "2011-07-01",
         status: "active",
-        role: "Lead · Venture",
+        role: "Venture",
+        lead: true,
       },
       {
         id: "i2",
@@ -359,6 +323,7 @@ export const impossibleFoods: Company = {
         title: "Founder & Chief Visionary Officer",
         leadership: true,
         linkedin: "#",
+        inThrive: false,
       },
       {
         id: "l3",
@@ -366,6 +331,7 @@ export const impossibleFoods: Company = {
         title: "Chief Financial Officer",
         leadership: true,
         linkedin: "#",
+        inThrive: false,
       },
     ],
   },

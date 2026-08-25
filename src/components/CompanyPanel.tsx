@@ -17,6 +17,7 @@ import { Avatar } from "./ui";
 import { OverviewTab } from "./tabs/OverviewTab";
 import { FinancialsTab } from "./tabs/FinancialsTab";
 import { PeopleTab } from "./tabs/PeopleTab";
+import { ProjectsTab } from "./tabs/ProjectsTab";
 
 const TABS = [
   "Overview",
@@ -74,9 +75,11 @@ export function CompanyPanel({
           {tab === "Overview" && <OverviewTab company={company} />}
           {tab === "Financials" && <FinancialsTab company={company} />}
           {tab === "People" && <PeopleTab company={company} />}
-          {tab !== "Overview" && tab !== "Financials" && tab !== "People" && (
-            <Placeholder tab={tab} />
-          )}
+          {tab === "Projects" && <ProjectsTab company={company} />}
+          {tab !== "Overview" &&
+            tab !== "Financials" &&
+            tab !== "People" &&
+            tab !== "Projects" && <Placeholder tab={tab} />}
         </div>
       </div>
     </PitchbookProvider>

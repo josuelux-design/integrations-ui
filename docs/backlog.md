@@ -1,6 +1,10 @@
 # Feedback backlog — company profile panel
 
-Raw notes from review, with interpretation. Nothing here is built yet.
+Raw notes from review, with interpretation.
+
+> Status: all seven items applied in the prototype (see commit history).
+> Assumptions taken: funding rounds removed entirely (#3); a `lead` flag marks
+> highlight investors, emphasized for private companies (#5).
 
 ## 1. Person not in the system → prompt to add to Thrive
 When a PitchBook-sourced person (e.g. a leadership team member) has no matching
